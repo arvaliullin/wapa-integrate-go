@@ -1,3 +1,5 @@
+default: pkg
+
 .PHONY: pkg publish build clean
 
 export GOARCH=wasm
@@ -20,5 +22,3 @@ publish: pkg
 clean:
 	@echo "Очистка сгенерированных файлов... (clean)"
 	rm -rf out pkg.zip
-
-default: pkg
