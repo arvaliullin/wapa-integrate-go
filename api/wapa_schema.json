@@ -1,0 +1,42 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "Имя эксперимента"
+        },
+        "lang": {
+            "type": "string",
+            "description": "Язык программирования на котором реализован модуль"
+        },
+        "functions": {
+            "type": "array",
+            "description": "Список функций и их аргументов",
+            "items": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "function": {
+                            "type": "string",
+                            "description": "Имя функции"
+                        },
+                        "args": {
+                            "type": "array",
+                            "description": "Список аргументов функции"
+                        }
+                    },
+                    "required": [
+                        "function",
+                        "args"
+                    ]
+                }
+            ]
+        }
+    },
+    "required": [
+        "name",
+        "lang",
+        "functions"
+    ]
+}
