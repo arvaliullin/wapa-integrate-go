@@ -1,0 +1,26 @@
+name: Build and Run WebAssembly
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    name: Build and Execute using Makefile
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: 1.24.1
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Build and Run Tests
+        run: make bench
